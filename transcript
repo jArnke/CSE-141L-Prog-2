@@ -1,0 +1,22 @@
+# Compile of Accumulator.sv failed with 1 errors.
+# Compile of RegFile.sv was successful.
+# Compile of Accumulator.sv was successful.
+# Compile of MemoryReg.sv was successful.
+# Compile of LFSR.sv was successful.
+# Compile of InstROM.sv was successful.
+# Compile of InstFetch.sv failed with 1 errors.
+# Error opening C:/Users/jakey/Desktop/CSE 141L Prog 2/(vlog-13069) C:/Users/jakey/Desktop/CSE 141L Prog 2/InstFetch.sv
+# Path name 'C:/Users/jakey/Desktop/CSE 141L Prog 2/(vlog-13069) C:/Users/jakey/Desktop/CSE 141L Prog 2/InstFetch.sv' doesn't exist.
+# Compile of InstFetch.sv failed with 1 errors.
+# Compile of InstFetch.sv failed with 1 errors.
+# Compile of InstFetch.sv failed with 1 errors.
+# Compile of InstFetch.sv failed with 1 errors.
+# Compile of InstFetch.sv was successful.
+# Compile of DataMem.sv was successful.
+# Compile of ALU.sv failed with 2 errors.
+# Compile of ParityLatch.sv failed with 1 errors.
+# Compile of ParityLatch.sv failed with 1 errors.
+# Compile of ParityLatch.sv failed with 1 errors.
+# Compile of ParityLatch.sv was successful.
+# Compile of LFSR.sv failed with 2 errors.
+# Compile of LFSR.sv was successful.
