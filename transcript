@@ -20,3 +20,19 @@
 # Compile of ParityLatch.sv was successful.
 # Compile of LFSR.sv failed with 2 errors.
 # Compile of LFSR.sv was successful.
+# Compile of CtrlStateLatch.sv was successful.
+# Compile of PrevInstructionLatch.sv was successful.
+# Compile of LFSR.sv was successful.
+# Compile of Ctrl.sv failed with 2 errors.
+# Error opening C:/Users/jakey/Desktop/CSE 141L Prog 2/(vlog-13069) C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv
+# Path name 'C:/Users/jakey/Desktop/CSE 141L Prog 2/(vlog-13069) C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv' doesn't exist.
+# Compile of Definitions.sv was successful.
+# Compile of Definitions.sv was successful.
+# Compile of Ctrl.sv failed with 2 errors.
+# Error opening C:/Users/jakey/Desktop/CSE 141L Prog 2/(vlog-13069) C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv
+# Path name 'C:/Users/jakey/Desktop/CSE 141L Prog 2/(vlog-13069) C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv' doesn't exist.
+# Compile of Ctrl.sv failed with 3 errors.
+# Compile of Ctrl.sv was successful.
+# ** Error: Acs sdne.
+# ;
+#        Unable to replace existing ini file (C:/Users/jakey/Desktop/CSE 141L Prog 2/cse141.mpf).  File can not be renamed.

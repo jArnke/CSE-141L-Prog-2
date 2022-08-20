@@ -17,14 +17,14 @@ module LFSR(
 
   logic[6:0] taptrn;			  // or just use taps input, if it never changes
 
-  always @(posedge clk)
+  always @(posedge Clk)
 	if(init) begin
 	  taptrn <= taps;			  // load tap pattern (should match data_mem[62])
 	end
 	else if (set) begin
 		state <= start;
 	end
-	else if(en)					  // advance to next state
+	else if(Advance)					  // advance to next state
 	  state  <= {state[6:0],^(state&taptrn)};
 
 endmodule

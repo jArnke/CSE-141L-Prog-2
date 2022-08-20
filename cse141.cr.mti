@@ -1,14 +1,12 @@
-{C:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv} {0 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv}
+{C:/Users/jakey/Desktop/CSE 141L Prog 2/CtrlStateLatch.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/CtrlStateLatch.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-** Error: C:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv(9): (vlog-13006) Could not find the package (Definitions).  Design read will continue, but expect a cascade of errors after this failure.  Furthermore if you experience a vopt-7 error immediately before this error then please check the package names or the library search paths on the command line.
-** Error: (vlog-13069) C:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv(14): near "OP": syntax error, unexpected IDENTIFIER, expecting ')'.
 
-} {3.0 5.0} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/RegFile.sv} {1 {vlog -work work -sv -stats=none {C:\Users\jakey\Desktop\CSE 141L Prog 2\RegFile.sv}
+} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/Definitions.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/Definitions.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module RegFile
+-- Compiling package Definitions
 
 Top level modules:
-	RegFile
+	--none--
 
 } {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/MemoryReg.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/MemoryReg.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -17,12 +15,24 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	MemoryReg
 
-} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/InstFetch.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/InstFetch.sv}
+} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/LFSR.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/LFSR.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module InstFetch
+-- Compiling module LFSR
 
 Top level modules:
-	InstFetch
+	LFSR
+
+} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv} {0 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+** Error: C:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv(9): (vlog-13006) Could not find the package (Definitions).  Design read will continue, but expect a cascade of errors after this failure.  Furthermore if you experience a vopt-7 error immediately before this error then please check the package names or the library search paths on the command line.
+** Error: (vlog-13069) C:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv(14): near "OP": syntax error, unexpected IDENTIFIER, expecting ')'.
+
+} {3.0 5.0} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/PrevInstructionLatch.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/PrevInstructionLatch.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module PrevInstructionLatch
+
+Top level modules:
+	PrevInstructionLatch
 
 } {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/InstROM.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/InstROM.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -31,6 +41,20 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	InstROM
 
+} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/ParityLatch.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/ParityLatch.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ParityLatch
+
+Top level modules:
+	ParityLatch
+
+} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/RegFile.sv} {1 {vlog -work work -sv -stats=none {C:\Users\jakey\Desktop\CSE 141L Prog 2\RegFile.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module RegFile
+
+Top level modules:
+	RegFile
+
 } {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/Accumulator.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/Accumulator.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module Accumulator
@@ -38,12 +62,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	Accumulator
 
-} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/ParityLatch.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/ParityLatch.sv}
+} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/InstFetch.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/InstFetch.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module ParityLatch
+-- Compiling module InstFetch
 
 Top level modules:
-	ParityLatch
+	InstFetch
 
 } {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/DataMem.sv} {1 {vlog -work work -sv -stats=none {C:\Users\jakey\Desktop\CSE 141L Prog 2\DataMem.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020

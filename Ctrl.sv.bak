@@ -29,7 +29,7 @@ module Ctrl (
 		LFSRShift,
 
 
-  output logic[2:0] OPCode,
+  output logic[2:0] OPcode,
   output logic[1:0] ALUInput,
   output logic[1:0] NextState,
   output logic[8:0] PrevInstructionOut,
@@ -107,7 +107,7 @@ always_comb	begin
 
 	//ALU Controls
 	OPCode = 3'b000;
-	ImmediateOut = Instruction[7:0];
+	ImmedateOut = Instruction[7:0];
 	ALUInput = 2'b00;
 
 	//Register Controls
@@ -124,8 +124,8 @@ always_comb	begin
    	case(CurrState)
 	2'b00: begin //Regular Mode:
 		//if branching:
-		if (Instruction[8])
-			case(Instruction[7:4])
+		if (instruction[8])
+			case(instruction[7:4])
 				4'b1000: begin
 					NextState = 'b01;
 				end
@@ -147,43 +147,18 @@ always_comb	begin
 					else
 						BranchEn = 'b1;
 				end
-				4'b1100: begin //LT
-					if(~CMPBits[0])
-						NextState = 'b01;
-					else
-						BranchEn = 'b1;
-				end
-				4'b1101: begin //LTE
-					if(~CMPBits[0] || CMPBits[1])
-						NextState = 'b01;
-					else
-						BranchEn = 'b1;
-				end
-				4'b1110: begin //Equal To
-					if(CMPBits[1])
-						NextState = 'b01;
-					else
-						BranchEn = 'b1;
-				end
+
+
+
+
+
 			endcase
-		else
-			case(Instruction[7:4])
-				4'b0000: begin //
-					
+
+		//else
+			
+			//case statement for arithmetic
 
 
-				end
-
-
-				
-			endcase
-			case(Instruction[3:2])  //Argument Field
-				2'b00:  //Use memory as argument
-				2'b10:  //Use Immediate
-					NextState = 'b10;
-				2'b01:  //Use Target value
-					NextState = 'b01;
-			endcase
 	end
 	2'b01: begin	//Target Mode
 		//if prev instruction[8] = 1 branch stuff

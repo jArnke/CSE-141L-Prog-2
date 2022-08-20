@@ -10,8 +10,7 @@ module LFSR(
 			init,		// 1: initialize tap ptrn
 			set,		// 1: set current state to start input
 
-  input       [6:0] 	taps,		  // parity feedback pattern
-                     	start,		  // initial state
+  input       [6:0] 	in,		  // parity feedback pattern
 
   output logic[6:0]  	state);	  // current state
 
@@ -19,10 +18,10 @@ module LFSR(
 
   always @(posedge Clk)
 	if(init) begin
-	  taptrn <= taps;			  // load tap pattern (should match data_mem[62])
+	  taptrn <= in;			  // load tap pattern (should match data_mem[62])
 	end
 	else if (set) begin
-		state <= start;
+		state <= in;
 	end
 	else if(Advance)					  // advance to next state
 	  state  <= {state[6:0],^(state&taptrn)};
