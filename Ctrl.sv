@@ -120,7 +120,8 @@ always_comb	begin
 	LFSRSetState = 'b0;
 	LFSRSetTapPtrn = 'b0;
 	LFSRShift = 'b0;
-	
+	Ack = 'b0;
+
    	case(CurrState)
 	2'b00: begin //Regular Mode:
 		//if branching:
@@ -167,23 +168,64 @@ always_comb	begin
 				end
 			endcase
 		else
-			case(Instruction[7:4])
-				4'b0000: begin //
-					
-
-
-				end
-
-
-				
-			endcase
-			case(Instruction[3:2])  //Argument Field
-				2'b00:  //Use memory as argument
-				2'b10:  //Use Immediate
-					NextState = 'b10;
-				2'b01:  //Use Target value
-					NextState = 'b01;
-			endcase
+			if(Instruction[7:4] == 4'b0000) // No OP codes:
+			begin
+				case(Instruction[3:2])
+					4'b0000: begin  //NO OP
+					end
+					4'b0001: begin //CLR ACC
+					end
+					4'b0010: begin //Clear Mem
+					end
+					4'b0011: begin  //LFSR set seed
+					end
+					4'b0100: begin  //LFSR set ptrn
+					end
+					4'b0101: begin  //LFSR shift
+					end
+					4'b0110: begin  
+					end	
+					4'b0111: begin  
+					end
+					4'b1000: begin  //CMP 
+					end
+					4'b1001: begin
+					end
+					4'b1010: begin
+					end
+					4'b1011: begin
+					end
+					4'b1100: begin  //STR
+					end
+					4'b1101: begin  //STR Mem
+					end
+					4'b1110: begin  //STR ACC with mem as pointer
+					end
+					4'b1111: begin  //Done
+						Ack = 'b1
+					end
+				endcase
+			end
+			else // Math
+			begin
+				case(Instruction[3:2])  //Argument Field
+					2'b00:  //Use memory as argument
+						case(Instruction[7:4])
+							4'b0001: begin end //ADD
+							4'b0010: begin end //SUB
+							4'b0011: begin end //ADM
+							4'b0100: begin end
+							4'b0101: begin end //AND
+							4'b0110: begin end //OR
+							4'b0111: begin end //XOR
+							4'b1000: begin end //XORA ? 
+						endcase
+					2'b10:  //Use Immediate
+						NextState = 'b10;
+					2'b01:  //Use Target value
+						NextState = 'b01;
+				endcase
+			end
 	end
 	2'b01: begin	//Target Mode
 		//if prev instruction[8] = 1 branch stuff
@@ -193,13 +235,13 @@ always_comb	begin
 
 	end
 	2'b10: begin	//Immediate Mode
-
+		//copy over math section from normal state
 
 
 	end
 	2'b11: begin	//NOP
 	
-
+		//Deprecated, shouldn't need this
 
 	end
    endcase
