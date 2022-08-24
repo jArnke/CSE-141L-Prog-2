@@ -9,7 +9,7 @@ module CtrlStateLatch #()(		 // W = data path width (leave at 8); D = address po
     );
 
 always_ff @ (posedge Clk) begin
-	ParityOut <= ParityIn;
+	StateOut <= StateIn;
 end
 
 endmodule

@@ -1,10 +1,23 @@
-# Compile of Ctrl.sv failed with 5 errors.
-# Compile of Definitions.sv was successful.
-# Compile of Ctrl.sv failed with 3 errors.
-# Error opening C:/Users/jakey/Desktop/CSE 141L Prog 2/(vlog-13069) C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv
-# Path name 'C:/Users/jakey/Desktop/CSE 141L Prog 2/(vlog-13069) C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv' doesn't exist.
-# Compile of Ctrl.sv failed with 3 errors.
-# Error opening C:/Users/jakey/Desktop/CSE 141L Prog 2/(vlog-13069) C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv
-# Path name 'C:/Users/jakey/Desktop/CSE 141L Prog 2/(vlog-13069) C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv' doesn't exist.
-# Compile of Ctrl.sv failed with 2 errors.
+# Compile of ALU.sv failed with 1 errors.
 # Compile of Comparator.sv was successful.
+# Compile of Comparator.sv failed with 1 errors.
+# Error opening C:/Users/jakey/Desktop/CSE 141L Prog 2/(vlog-13038) C:/Users/jakey/Desktop/CSE 141L Prog 2/Comparator.sv
+# Path name 'C:/Users/jakey/Desktop/CSE 141L Prog 2/(vlog-13038) C:/Users/jakey/Desktop/CSE 141L Prog 2/Comparator.sv' doesn't exist.
+# Compile of Comparator.sv failed with 1 errors.
+# Compile of Comparator.sv was successful.
+# Compile of CtrlStateLatch.sv failed with 2 errors.
+# Compile of CtrlStateLatch.sv failed with 1 errors.
+# Compile of CtrlStateLatch.sv was successful.
+# Compile of Definitions.sv was successful.
+# Compile of FourMux.sv failed with 5 errors.
+# Compile of FourMux.sv failed with 4 errors.
+# Error opening C:/Users/jakey/Desktop/CSE 141L Prog 2/(vlog-13053) C:/Users/jakey/Desktop/CSE 141L Prog 2/FourMux.sv
+# Path name 'C:/Users/jakey/Desktop/CSE 141L Prog 2/(vlog-13053) C:/Users/jakey/Desktop/CSE 141L Prog 2/FourMux.sv' doesn't exist.
+# Compile of FourMux.sv failed with 4 errors.
+# Compile of FourMux.sv failed with 4 errors.
+# Compile of FourMux.sv failed with 1 errors.
+# Compile of FourMux.sv failed with 1 errors.
+# Compile of FourMux.sv failed with 5 errors.
+# Compile of FourMux.sv failed with 5 errors.
+# Compile of FourMux.sv failed with 5 errors.
+# Compile of FourMux.sv was successful.

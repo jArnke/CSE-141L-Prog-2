@@ -28,15 +28,14 @@ module Ctrl (
 
 		LFSRSetState,
 		LFSRSetTapPtrn,
-		LFSRShift,
+		LFSRShift,	
 
 
   output logic[2:0] OPCode,
   output logic[1:0] ALUInput,
   output logic[1:0] NextState,
   output logic[8:0] PrevInstructionOut,
-  output logic[2:0] CMPBitsOut,
-
+  output logic[6:0] LFSRInput,
   output logic[8:0] BranchTarget,
   output logic[7:0] ImmediateOut,
   output logic[8:0] MemoryTarget
@@ -64,7 +63,7 @@ module Ctrl (
 		//Memory Value Control - 1 = Acc 0 = Mem Reg
 
 		//Instruction Target
-		//ALU B Control - 2 bits 00 = Mem, 01 = Data from Target, 10 = Immediate
+		//ALU B Control - 2 bits 00 = Mem, 01 = Data from Target, 10 = Immediate 11 = LFSR
 
 		//BranchEn -  1 = Take Branch  0 = PC + 1
 
@@ -119,11 +118,14 @@ always_comb	begin
 	RegLoadEn = 'b0;
 	AccClr = 'b0;
 	RegClr = 'b0;
+	
+	CMPLoadEn = 'b0;
 
 	//LFSR Control
 	LFSRSetState = 'b0;
 	LFSRSetTapPtrn = 'b0;
 	LFSRShift = 'b0;
+	LFSRInput = Instruction[6:0];
 	Ack = 'b0;
 
    	case(CurrState)
@@ -198,7 +200,7 @@ always_comb	begin
 					4'b0111: begin  
 					end
 					4'b1000: begin  //CMP 
-						//TODO
+						CMPLoadEn = 'b1;
 					end
 					4'b1001: begin
 					end
@@ -261,6 +263,39 @@ always_comb	begin
 						NextState = 'b10;
 					2'b01:  //Use Target value
 						NextState = 'b01;
+					2'b11:  //Use LFSR as argument
+						AluInput 2'b11;
+						case(Instruction[7:4])
+							4'b0001: begin 
+								OPCode = ADD;
+								AccLoadCtrl = 'b1;
+							end //ADD
+							4'b0010: begin 
+								OPCode = SUB;
+								AccLoadCtrl = 'b1;
+							end //SUB
+							4'b0011: begin
+								OPCode = ADD;
+								RegLoadCtrl = 'b1;
+							end //ADM
+							4'b0100: begin end
+							4'b0101: begin 
+								OPCode = AND;
+								AccLoadCtrl = 'b1;
+							end //AND
+							4'b0110: begin 
+								OPCode = OR;
+								AccLoadCtrl = 'b1;
+							end //OR
+							4'b0111: begin 
+								OPCode = XOR;
+								AccLoadCtrl = 'b1;
+							end //XOR
+							4'b1000: begin 
+								OPCode = XORA;
+								AccLoadCtrl = 'b1; 
+							end //XORA
+						endcase
 				endcase
 			end
 		end

@@ -130,7 +130,7 @@ ALU ALU1  (
 	  .InputA  (AccOut),
 	  .InputB  (InB), 
 	  .SC_in   (1'b1),
-	  .OP      (OPCode),
+	  .OP      (Instruction[8:6]),
 	  .Out     (ALU_out),//regWriteValue),
 	  .Zero		                              // status flag; may have others, if desired
 );
