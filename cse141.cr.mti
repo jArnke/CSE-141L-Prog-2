@@ -1,9 +1,21 @@
-{C:/Users/jakey/Desktop/CSE 141L Prog 2/RegFile.sv} {1 {vlog -work work -sv -stats=none {C:\Users\jakey\Desktop\CSE 141L Prog 2\RegFile.sv}
+{C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv} {0 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module RegFile
+** Error: C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv(248): (vlog-2730) Undefined variable: 'OR'.
+** Error: C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv(307): (vlog-2730) Undefined variable: 'OR'.
+
+} {3.0 5.0} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/MemoryReg.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/MemoryReg.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module MemoryReg
 
 Top level modules:
-	RegFile
+	MemoryReg
+
+} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/LFSR.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/LFSR.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module LFSR
+
+Top level modules:
+	LFSR
 
 } {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv} {0 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -17,26 +29,26 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	PrevInstructionLatch
 
-} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/LFSR.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/LFSR.sv}
+} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/InstROM.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/InstROM.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module LFSR
+-- Compiling module InstROM
 
 Top level modules:
-	LFSR
+	InstROM
 
-} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/MemoryReg.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/MemoryReg.sv}
+} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/ParityLatch.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/ParityLatch.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module MemoryReg
+-- Compiling module ParityLatch
 
 Top level modules:
-	MemoryReg
+	ParityLatch
 
-} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/InstFetch.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/InstFetch.sv}
+} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/RegFile.sv} {1 {vlog -work work -sv -stats=none {C:\Users\jakey\Desktop\CSE 141L Prog 2\RegFile.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module InstFetch
+-- Compiling module RegFile
 
 Top level modules:
-	InstFetch
+	RegFile
 
 } {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/Accumulator.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/Accumulator.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -45,12 +57,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	Accumulator
 
-} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/InstROM.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/InstROM.sv}
+} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/InstFetch.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/InstFetch.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module InstROM
+-- Compiling module InstFetch
 
 Top level modules:
-	InstROM
+	InstFetch
 
 } {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/DataMem.sv} {1 {vlog -work work -sv -stats=none {C:\Users\jakey\Desktop\CSE 141L Prog 2\DataMem.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -58,12 +70,5 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 
 Top level modules:
 	DataMem
-
-} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/ParityLatch.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/ParityLatch.sv}
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module ParityLatch
-
-Top level modules:
-	ParityLatch
 
 } {} {}}
