@@ -31,7 +31,9 @@ always_comb begin
     ADD : {SC_out,Out} = InputA + InputB + SC_in;   // unsigned add with carry-in and carry-out
     LSH : {SC_out,Out} = {InputA[7:0],SC_in};       // shift left, fill in with SC_in, fill SC_out with InputA[7]
 // for logical left shift, tie SC_in = 0
+    LSHZ: {SC_out,Out} = {InputA[7:0],0};
     RSH : {Out,SC_out} = {SC_in, InputA[7:0]};      // shift right
+    RSHZ: {Out,SC_out} = {0, InputA[7:0]};      // shift right
     XOR : Out = InputA ^ InputB;                    // bitwise exclusive OR
     OR  : Out = InputA | InputB;
     AND : Out = InputA & InputB;                    // bitwise AND
