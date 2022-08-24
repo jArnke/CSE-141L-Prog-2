@@ -226,14 +226,29 @@ always_comb	begin
 				case(Instruction[3:2])  //Argument Field
 					2'b00:  //Use memory as argument
 						case(Instruction[7:4])
-							4'b0001: begin end //ADD
+							4'b0001: begin 
+								OPCode = ADD;
+								AccLoadCtrl = 'b1;
+							end //ADD
 							4'b0010: begin end //SUB
+								OPCode = SUB;
+								AccLoadCtrl = 'b1;
 							4'b0011: begin end //ADM
+								OPCode = ADD;
+								RegLoadCtrl = 'b1;
 							4'b0100: begin end
 							4'b0101: begin end //AND
+								OPCode = AND;
+								AccLoadCtrl = 'b1;
 							4'b0110: begin end //OR
+								OPCode = OR;
+								AccLoadCtrl = 'b1;
 							4'b0111: begin end //XOR
-							4'b1000: begin end //XORA ? 
+								OPCode = XOR;
+								AccLoadCtrl = 'b1;
+							4'b1000: begin end //XORA
+								OPCode = XORA;
+								AccLoadCtrl = 'b1; 
 						endcase
 					2'b10:  //Use Immediate
 						NextState = 'b10;
