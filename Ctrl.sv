@@ -129,7 +129,7 @@ always_comb	begin
    	case(CurrState)
 	2'b00: begin //Regular Mode:
 		//if branching:
-		if (Instruction[8])
+		if (Instruction[8]) begin
 			case(Instruction[7:4])
 				4'b1000: begin
 					NextState = 'b01;
@@ -171,10 +171,11 @@ always_comb	begin
 						BranchEn = 'b1;
 				end
 			endcase
-		else
+		end
+		else begin
 			if(Instruction[7:4] == 4'b0000) // No OP codes:
 			begin
-				case(Instruction[3:2])
+				case(Instruction[3:0])
 					4'b0000: begin  //NO OP
 					end
 					4'b0001: begin //CLR ACC
@@ -230,25 +231,31 @@ always_comb	begin
 								OPCode = ADD;
 								AccLoadCtrl = 'b1;
 							end //ADD
-							4'b0010: begin end //SUB
+							4'b0010: begin //SUB
 								OPCode = SUB;
 								AccLoadCtrl = 'b1;
-							4'b0011: begin end //ADM
+							end
+							4'b0011: begin//ADM
 								OPCode = ADD;
 								RegLoadCtrl = 'b1;
+							end
 							4'b0100: begin end
-							4'b0101: begin end //AND
+							4'b0101: begin //AND
 								OPCode = AND;
 								AccLoadCtrl = 'b1;
-							4'b0110: begin end //OR
+							end
+							4'b0110: begin //OR
 								OPCode = OR;
 								AccLoadCtrl = 'b1;
-							4'b0111: begin end //XOR
+							end
+							4'b0111: begin //XOR
 								OPCode = XOR;
 								AccLoadCtrl = 'b1;
-							4'b1000: begin end //XORA
+							end
+							4'b1000: begin //XORA
 								OPCode = XORA;
 								AccLoadCtrl = 'b1; 
+							end
 						endcase
 					2'b10:  //Use Immediate
 						NextState = 'b10;
@@ -256,14 +263,62 @@ always_comb	begin
 						NextState = 'b01;
 				endcase
 			end
+		end
 	end
 	2'b01: begin	//Target Mode
-		//if prev instruction[8] = 1 branch stuff
-
-		//else case instruction[7:4]
-			//arithmetic:
-
+		if (PrevInstruction[8] == 'b1) begin // branch stuff
+			BranchEn = 'b1;
+			BranchTarget = Instruction;
+		end
+		else begin
+			MemoryTarget = Instruction;
+			MemAddrCtrl = 'b1;
+			ALUInput = 2'b01;
+			case(PrevInstruction[7:4])
+				4'b0000: begin // STR
+					case(PrevInstruction[3:0])
+						4'b1100: begin  //STR
+							MemValueCtrl = 'b1;
+							MemWrEn = 'b1;
+						end
+						4'b1101: begin  //STR Mem
+							MemWrEn = 'b1;
+						end
+					endcase
+				end
+				4'b0001: begin 
+					OPCode = ADD;
+					AccLoadCtrl = 'b1;
+				end //ADD
+				4'b0010: begin //SUB
+					OPCode = SUB;
+					AccLoadCtrl = 'b1;
+				end
+				4'b0011: begin//ADM
+					OPCode = ADD;
+					RegLoadCtrl = 'b1;
+				end
+				4'b0100: begin end
+				4'b0101: begin //AND
+					OPCode = AND;
+					AccLoadCtrl = 'b1;
+				end
+				4'b0110: begin //OR
+					OPCode = OR;
+					AccLoadCtrl = 'b1;
+				end
+				4'b0111: begin //XOR
+					OPCode = XOR;
+					AccLoadCtrl = 'b1;
+				end
+				4'b1000: begin //XORA
+					OPCode = XORA;
+					AccLoadCtrl = 'b1; 
+					end
+			endcase
+		end
 	end
+
 	2'b10: begin	//Immediate Mode
 		//copy over math section from normal state
 
