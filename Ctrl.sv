@@ -231,31 +231,31 @@ always_comb	begin
 								OPCode = ADD;
 								AccLoadCtrl = 'b1;
 							end //ADD
-							4'b0010: begin //SUB
+							4'b0010: begin 
 								OPCode = SUB;
 								AccLoadCtrl = 'b1;
-							end
-							4'b0011: begin//ADM
+							end //SUB
+							4'b0011: begin
 								OPCode = ADD;
 								RegLoadCtrl = 'b1;
-							end
+							end //ADM
 							4'b0100: begin end
-							4'b0101: begin //AND
+							4'b0101: begin 
 								OPCode = AND;
 								AccLoadCtrl = 'b1;
-							end
-							4'b0110: begin //OR
+							end //AND
+							4'b0110: begin 
 								OPCode = OR;
 								AccLoadCtrl = 'b1;
-							end
-							4'b0111: begin //XOR
+							end //OR
+							4'b0111: begin 
 								OPCode = XOR;
 								AccLoadCtrl = 'b1;
-							end
-							4'b1000: begin //XORA
+							end //XOR
+							4'b1000: begin 
 								OPCode = XORA;
 								AccLoadCtrl = 'b1; 
-							end
+							end //XORA
 						endcase
 					2'b10:  //Use Immediate
 						NextState = 'b10;
@@ -321,6 +321,10 @@ always_comb	begin
 
 	2'b10: begin	//Immediate Mode
 		//copy over math section from normal state
+		OPCode = ADD;
+		ALUInput = 'b10;
+		ImmediateOut = Instruction[6:0];
+		AccLoadCtrl = 'b1; 
 
 
 	end

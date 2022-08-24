@@ -33,13 +33,11 @@ always_comb begin
 // for logical left shift, tie SC_in = 0
     RSH : {Out,SC_out} = {SC_in, InputA[7:0]};      // shift right
     XOR : Out = InputA ^ InputB;                    // bitwise exclusive OR
+    OR  : Out = InputA | InputB;
     AND : Out = InputA & InputB;                    // bitwise AND
     SUB : {SC_out,Out} = InputA + (~InputB) + 1;	// InputA - InputB;
     CLR : {SC_out,Out} = 'b0;
-    XORA: begin 
-      Out = InputA;
-      Out[7] = ^InputA[6:0];
-    end
+    XORA: Out[7] = ^InputA[6:0];
   endcase
 end
 
@@ -48,3 +46,5 @@ assign Parity = ^Out;                   // reduction XOR
 assign Odd    = Out[0];                 // odd/even -- just the value of the LSB
 
 endmodule
+
+
