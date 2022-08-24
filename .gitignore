@@ -1,0 +1,4 @@
+*.bak
+work/
+work/*
+CSE-141L-Prog-2.*

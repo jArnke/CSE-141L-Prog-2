@@ -10,7 +10,8 @@ package Definitions;
 // enum names will appear in timing diagram
 // ADD = 3'b000; LSH = 3'b001; etc. 3'b111 is undefined here
   typedef enum logic[3:0] {
-      ADD, LSH, RSH, OR, XOR,
+      ADD, LSH, RSH, LSHZ, RSHZ,
+      OR, XOR,
       AND, SUB, CLR, XORA} op_mne;
     
 endpackage // definitions

@@ -238,7 +238,13 @@ always_comb	begin
 								OPCode = ADD;
 								RegLoadCtrl = 'b1;
 							end //ADM
-							4'b0100: begin end
+							4'b0100: begin
+								if (Instruction[1])
+									OPCode = RSH;
+								else
+									OPCode = RSHZ;
+								AccLoadCtrl = 'b1;
+							end
 							4'b0101: begin 
 								OPCode = AND;
 								AccLoadCtrl = 'b1;
@@ -255,6 +261,13 @@ always_comb	begin
 								OPCode = XORA;
 								AccLoadCtrl = 'b1; 
 							end //XORA
+							4'b1001: begin
+								if (Instruction[1])
+									OPCode = LSH;
+								else
+									OPCode = LSHZ;
+								AccLoadCtrl = 'b1;
+							end //LSH
 						endcase
 					2'b10:  //Use Immediate
 						NextState = 'b10;
@@ -275,9 +288,58 @@ always_comb	begin
 		OPCode = ADD;
 		ALUInput = 'b10;
 		ImmediateOut = Instruction[6:0];
-		AccLoadCtrl = 'b1; 
-
-
+		AccLoadCtrl = 'b1;
+				case(PrevInstruction[3:2])  //Argument Field
+					2'b00:  //Use memory as argument
+						case(PrevInstruction[7:4])
+							4'b0001: begin 
+								OPCode = ADD;
+								AccLoadCtrl = 'b1;
+							end //ADD
+							4'b0010: begin 
+								OPCode = SUB;
+								AccLoadCtrl = 'b1;
+							end //SUB
+							4'b0011: begin
+								OPCode = ADD;
+								RegLoadCtrl = 'b1;
+							end //ADM
+							4'b0100: begin
+								if (PrevInstruction[1])						if (Instruction[1])
+									OPCode = RSH;
+								else
+									OPCode = RSHZ;
+								AccLoadCtrl = 'b1;
+							end //RSH
+							4'b0101: begin 
+								OPCode = AND;
+								AccLoadCtrl = 'b1;
+							end //AND
+							4'b0110: begin 
+								OPCode = OR;
+								AccLoadCtrl = 'b1;
+							end //OR
+							4'b0111: begin 
+								OPCode = XOR;
+								AccLoadCtrl = 'b1;
+							end //XOR
+							4'b1000: begin 
+								OPCode = XORA;
+								AccLoadCtrl = 'b1; 
+							end //XORA
+							4'b1001: begin
+								if (PrevInstruction[1])						if (Instruction[1])
+									OPCode = RSH;
+								else
+									OPCode = RSHZ;
+								AccLoadCtrl = 'b1;
+							end //LSH
+						endcase
+					2'b10:  //Use Immediate
+						NextState = 'b10;
+					2'b01:  //Use Target value
+						NextState = 'b01;
+				endcase
 	end
 	2'b11: begin	//NOP
 	
