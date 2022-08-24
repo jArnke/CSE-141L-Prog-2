@@ -36,10 +36,6 @@ always_comb begin
     AND : Out = InputA & InputB;                    // bitwise AND
     SUB : {SC_out,Out} = InputA + (~InputB) + 1;	// InputA - InputB;
     CLR : {SC_out,Out} = 'b0;
-    XORA: begin 
-      Out = InputA;
-      Out[7] = ^InputA[6:0];
-    end
   endcase
 end
 

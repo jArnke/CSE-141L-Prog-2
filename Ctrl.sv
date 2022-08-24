@@ -19,6 +19,8 @@ module Ctrl (
 		RegLoadCtrl,	
 		AccLoadEn,	
 		RegLoadEn,
+		AccClr,
+		RegClr,
 
 		CMPLoadEn,
 		
@@ -115,6 +117,8 @@ always_comb	begin
 	RegLoadCtrl = 'b0;
 	AccLoadEn = 'b0;
 	RegLoadEn = 'b0;
+	AccClr = 'b0;
+	RegClr = 'b0;
 
 	//LFSR Control
 	LFSRSetState = 'b0;
@@ -174,20 +178,26 @@ always_comb	begin
 					4'b0000: begin  //NO OP
 					end
 					4'b0001: begin //CLR ACC
+						AccClr = 'b1;
 					end
 					4'b0010: begin //Clear Mem
+						RegClr = 'b1;
 					end
 					4'b0011: begin  //LFSR set seed
+						LFSRSetState = 'b1;
 					end
 					4'b0100: begin  //LFSR set ptrn
+						LFSRSetTapPtrn = 'b1;
 					end
 					4'b0101: begin  //LFSR shift
+						LFSRShift = 'b1;
 					end
 					4'b0110: begin  
 					end	
 					4'b0111: begin  
 					end
 					4'b1000: begin  //CMP 
+						//TODO
 					end
 					4'b1001: begin
 					end
@@ -196,10 +206,15 @@ always_comb	begin
 					4'b1011: begin
 					end
 					4'b1100: begin  //STR
+						NextState = 'b01; // Handle in Target mode
 					end
 					4'b1101: begin  //STR Mem
+						NextState = 'b01; // Handle in Target mode
 					end
 					4'b1110: begin  //STR ACC with mem as pointer
+						MemAddrCtrl = 'b0;
+						MemValueCtrl = 'b1;
+						MemWrEn = 'b1;
 					end
 					4'b1111: begin  //Done
 						Ack = 'b1;
@@ -212,29 +227,28 @@ always_comb	begin
 					2'b00:  //Use memory as argument
 						case(Instruction[7:4])
 							4'b0001: begin 
-								
+								OPCode = ADD;
+								AccLoadCtrl = 'b1;
 							end //ADD
-							4'b0010: begin 
-								
-							end //SUB
-							4'b0011: begin 
-								
-							end //ADM
-							4'b0100: begin 
-								
-							end
-							4'b0101: begin 
-								
-							end //AND
-							4'b0110: begin 
-								
-							end //OR
-							4'b0111: begin 
-								
-							end //XOR
-							4'b1000: begin 
-								
-							end //XORA ? 
+							4'b0010: begin end //SUB
+								OPCode = SUB;
+								AccLoadCtrl = 'b1;
+							4'b0011: begin end //ADM
+								OPCode = ADD;
+								RegLoadCtrl = 'b1;
+							4'b0100: begin end
+							4'b0101: begin end //AND
+								OPCode = AND;
+								AccLoadCtrl = 'b1;
+							4'b0110: begin end //OR
+								OPCode = OR;
+								AccLoadCtrl = 'b1;
+							4'b0111: begin end //XOR
+								OPCode = XOR;
+								AccLoadCtrl = 'b1;
+							4'b1000: begin end //XORA
+								OPCode = XORA;
+								AccLoadCtrl = 'b1; 
 						endcase
 					2'b10:  //Use Immediate
 						NextState = 'b10;
