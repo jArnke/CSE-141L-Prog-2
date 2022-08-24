@@ -5,12 +5,37 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	CtrlStateLatch
 
-} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv} {0 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv}
+} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/TopLevel.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/TopLevel.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-** Error: C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv(248): (vlog-2730) Undefined variable: 'OR'.
-** Error: C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv(307): (vlog-2730) Undefined variable: 'OR'.
+-- Compiling module TopLevel
 
-} {3.0 5.0} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/MemoryReg.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/MemoryReg.sv}
+Top level modules:
+	TopLevel
+
+} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/TwoMux.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/TwoMux.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module FourMux
+
+Top level modules:
+	FourMux
+
+} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/Definitions.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/Definitions.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling package Definitions
+
+Top level modules:
+	--none--
+
+} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling package Ctrl_sv_unit
+-- Importing package Definitions
+-- Compiling module Ctrl
+
+Top level modules:
+	Ctrl
+
+} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/MemoryReg.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/MemoryReg.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module MemoryReg
 
@@ -24,11 +49,16 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	LFSR
 
-} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv} {0 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv}
+} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-** Error: C:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv(36): (vlog-2730) Undefined variable: 'OR'.
+-- Compiling package ALU_sv_unit
+-- Importing package Definitions
+-- Compiling module ALU
 
-} {3.0 4.0} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/PrevInstructionLatch.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/PrevInstructionLatch.sv}
+Top level modules:
+	ALU
+
+} {} {}} {C:/Users/jakey/Desktop/CSE 141L Prog 2/PrevInstructionLatch.sv} {1 {vlog -work work -sv -stats=none {C:/Users/jakey/Desktop/CSE 141L Prog 2/PrevInstructionLatch.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module PrevInstructionLatch
 

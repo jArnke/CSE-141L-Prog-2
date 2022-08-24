@@ -15,8 +15,6 @@ module Ctrl (
 		MemValueCtrl,
 		MemWrEn,	   // write to mem (store only)
 
-		AccLoadCtrl,  // Mem or ALU to Acc/Reg   1 or 0 respectively
-		RegLoadCtrl,	
 		AccLoadEn,	
 		RegLoadEn,
 		AccClr,
@@ -31,7 +29,7 @@ module Ctrl (
 		LFSRShift,	
 
 
-  output logic[2:0] OPCode,
+  output logic[3:0] OPCode,
   output logic[1:0] ALUInput,
   output logic[1:0] NextState,
   output logic[8:0] PrevInstructionOut,
@@ -97,7 +95,6 @@ always_comb	begin
 	BranchTarget = 9'b000000010;
 	BranchEn = 'b0;
 
-	CMPBitsOut = CMPBits;
 	CMPLoadEn = 'b0;
 
 	//Memory Controls
@@ -112,8 +109,6 @@ always_comb	begin
 	ALUInput = 2'b00;
 
 	//Register Controls
-	AccLoadCtrl = 'b0;
-	RegLoadCtrl = 'b0;
 	AccLoadEn = 'b0;
 	RegLoadEn = 'b0;
 	AccClr = 'b0;
@@ -231,84 +226,85 @@ always_comb	begin
 						case(Instruction[7:4])
 							4'b0001: begin 
 								OPCode = ADD;
-								AccLoadCtrl = 'b1;
+								AccLoadEn = 'b1;
 							end //ADD
 							4'b0010: begin 
 								OPCode = SUB;
-								AccLoadCtrl = 'b1;
+								AccLoadEn = 'b1;
 							end //SUB
 							4'b0011: begin
 								OPCode = ADD;
-								RegLoadCtrl = 'b1;
+								RegLoadEn = 'b1;
 							end //ADM
 							4'b0100: begin
 								if (Instruction[1])
 									OPCode = RSH;
 								else
 									OPCode = RSHZ;
-								AccLoadCtrl = 'b1;
+								AccLoadEn = 'b1;
 							end
 							4'b0101: begin 
 								OPCode = AND;
-								AccLoadCtrl = 'b1;
+								AccLoadEn = 'b1;
 							end //AND
 							4'b0110: begin 
 								OPCode = OR;
-								AccLoadCtrl = 'b1;
+								AccLoadEn = 'b1;
 							end //OR
 							4'b0111: begin 
 								OPCode = XOR;
-								AccLoadCtrl = 'b1;
+								AccLoadEn = 'b1;
 							end //XOR
 							4'b1000: begin 
 								OPCode = XORA;
-								AccLoadCtrl = 'b1; 
+								AccLoadEn = 'b1; 
 							end //XORA
 							4'b1001: begin
 								if (Instruction[1])
 									OPCode = LSH;
 								else
 									OPCode = LSHZ;
-								AccLoadCtrl = 'b1;
+								AccLoadEn = 'b1;
 							end //LSH
 						endcase
 					2'b10:  //Use Immediate
 						NextState = 'b10;
 					2'b01:  //Use Target value
 						NextState = 'b01;
-					2'b11:  //Use LFSR as argument
-						AluInput 2'b11;
+					2'b11:  begin //Use LFSR as argument 
+						ALUInput = 2'b11;
 						case(Instruction[7:4])
 							4'b0001: begin 
 								OPCode = ADD;
-								AccLoadCtrl = 'b1;
+								AccLoadEn = 'b1;
 							end //ADD
 							4'b0010: begin 
 								OPCode = SUB;
-								AccLoadCtrl = 'b1;
+								AccLoadEn = 'b1;
 							end //SUB
 							4'b0011: begin
 								OPCode = ADD;
-								RegLoadCtrl = 'b1;
+								RegLoadEn = 'b1;
 							end //ADM
 							4'b0100: begin end
 							4'b0101: begin 
 								OPCode = AND;
-								AccLoadCtrl = 'b1;
+								AccLoadEn = 'b1;
 							end //AND
 							4'b0110: begin 
 								OPCode = OR;
-								AccLoadCtrl = 'b1;
+								AccLoadEn = 'b1;
 							end //OR
 							4'b0111: begin 
 								OPCode = XOR;
-								AccLoadCtrl = 'b1;
+								AccLoadEn = 'b1;
 							end //XOR
 							4'b1000: begin 
 								OPCode = XORA;
-								AccLoadCtrl = 'b1; 
+								AccLoadEn = 'b1; 
 							end //XORA
 						endcase
+					end
 				endcase
 			end
 		end
@@ -336,32 +332,32 @@ always_comb	begin
 				end
 				4'b0001: begin 
 					OPCode = ADD;
-					AccLoadCtrl = 'b1;
+					AccLoadEn = 'b1;
 				end //ADD
 				4'b0010: begin //SUB
 					OPCode = SUB;
-					AccLoadCtrl = 'b1;
+					AccLoadEn = 'b1;
 				end
 				4'b0011: begin//ADM
 					OPCode = ADD;
-					RegLoadCtrl = 'b1;
+					RegLoadEn = 'b1;
 				end
 				4'b0100: begin end
 				4'b0101: begin //AND
 					OPCode = AND;
-					AccLoadCtrl = 'b1;
+					AccLoadEn = 'b1;
 				end
 				4'b0110: begin //OR
 					OPCode = OR;
-					AccLoadCtrl = 'b1;
+					AccLoadEn = 'b1;
 				end
 				4'b0111: begin //XOR
 					OPCode = XOR;
-					AccLoadCtrl = 'b1;
+					AccLoadEn = 'b1;
 				end
 				4'b1000: begin //XORA
 					OPCode = XORA;
-					AccLoadCtrl = 'b1; 
+					AccLoadEn = 'b1; 
 					end
 			endcase
 		end
@@ -372,51 +368,50 @@ always_comb	begin
 		OPCode = ADD;
 		ALUInput = 'b10;
 		ImmediateOut = Instruction[6:0];
-		AccLoadCtrl = 'b1;
 				case(PrevInstruction[3:2])  //Argument Field
 					2'b00:  //Use memory as argument
 						case(PrevInstruction[7:4])
 							4'b0001: begin 
 								OPCode = ADD;
-								AccLoadCtrl = 'b1;
+								AccLoadEn = 'b1;
 							end //ADD
 							4'b0010: begin 
 								OPCode = SUB;
-								AccLoadCtrl = 'b1;
+								AccLoadEn = 'b1;
 							end //SUB
 							4'b0011: begin
 								OPCode = ADD;
-								RegLoadCtrl = 'b1;
+								RegLoadEn = 'b1;
 							end //ADM
 							4'b0100: begin
 								if (PrevInstruction[1])
 									OPCode = RSH;
 								else
 									OPCode = RSHZ;
-								AccLoadCtrl = 'b1;
+								AccLoadEn = 'b1;
 							end //RSH
 							4'b0101: begin 
 								OPCode = AND;
-								AccLoadCtrl = 'b1;
+								AccLoadEn = 'b1;
 							end //AND
 							4'b0110: begin 
 								OPCode = OR;
-								AccLoadCtrl = 'b1;
+								AccLoadEn = 'b1;
 							end //OR
 							4'b0111: begin 
 								OPCode = XOR;
-								AccLoadCtrl = 'b1;
+								AccLoadEn = 'b1;
 							end //XOR
 							4'b1000: begin 
 								OPCode = XORA;
-								AccLoadCtrl = 'b1; 
-							end //XORA
+								AccLoadEn = 'b1; 
+							end //XOR
 							4'b1001: begin
 								if (PrevInstruction[1])
 									OPCode = RSH;
 								else
 									OPCode = RSHZ;
-								AccLoadCtrl = 'b1;
+								AccLoadEn = 'b1;
 							end //LSH
 						endcase
 					2'b10:  //Use Immediate
