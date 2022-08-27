@@ -1,0 +1,110 @@
+BEGIN:
+  CLR ACC //Set ACC and MEM to zero
+  CLR MEM
+
+CHECK_SPACE:
+  ADD [0] // Read in the value where the accumulator is pointing [0] to ACC
+  XOR 0x20
+BZ: INC_SPACE
+BR: COPY_TO_BEG_FIRST
+
+
+INC_SPACE: // Label for instruction, increment loop looking for first non-space
+  IMM 1   // Add 1 to ACC, which is zero since program branched here
+  ADD MEM // Add to count of how many characters have been read
+BR: CHECK_SPACE
+
+
+COPY_TO_BEG_FIRST: // Undoes 0x20 check before beginning to copy the message
+  XOR 0x20
+  STRR [64] // Since we won't be using the spaces from [64] onwards, we can store our
+          // distance from zero in this space in memory
+  STRR [65] // We can store the last address we read in here
+
+
+COPY_TO_BEG:
+  CLR MEM
+  CLR ACC
+  ADD [65]
+  ADD CLR *ACC // Loads value from last read to ACC
+BZ: LOAD_SPACE // If value is zero, add space instead
+B: CNT_COPY_BEG
+LOAD_SPACE:
+  IMM 0x20
+CNT_COPY_BEG:
+  ADM     // Move value that was in the read address to MEM
+
+  CLR ACC
+  ADD [65]
+  SUB [64] // Get address at the beginning to read message to
+  STRR +0 // Saves value in MEM to the value in ACC +0
+
+  CLR ACC
+  IMM 1
+  ADD [65]
+  ADM     // Move number of current message to MEM
+  IMM 64
+  CMP
+BEQ: COPY_MSG_FIRST  // If we've finished copying messages 0-63
+  STRR [65] // Saves address of next value to be read
+BR: COPY_TO_BEG
+
+COPY_MSG_FIRST:
+ 
+  AND 0x80
+  ADM           // Put MSB in MEM
+  ADD [0]
+  SHIFT ACC LEFT// Get rid of MSB
+  XORA          // Get parity of ACC without MSB
+  SHIFT ACC ROR // Rotate ACC right
+  AND MEM       // AND parity and MSB of stored message
+  CMP
+  CLR ACC
+  CLR MEM
+  ADD [0]
+  ADM
+  CLR ACC
+BEQ: MATCH_CPY_FIRST // If message matches parity, copy message
+  IMM 0x80             // Else, copy 0x80 to output
+  CLR MEM
+  ADM
+  CLR ACC
+MATCH_CPY_FIRST:
+  STRR +64
+  IMM 1
+  STR [0] // Use [0] to track what message we scan next
+
+
+COPY_MSG:
+  CLR ACC
+  ADD [0]
+  ADD CLR *ARR // Read in next message
+  SHIFT ACC LEFT// Get rid of MSB
+  XORA          // Get parity of ACC without MSB
+  SHIFT ACC ROR // Rotate ACC right
+  AND MEM       // AND parity and MSB of stored message
+  CMP
+  CLR ACC
+  CLR MEM
+  ADD [0]
+  ADD CLR *ARR
+  CLR ACC
+  ADD [0]
+BEQ: MATCH_CPY // If message matches parity, copy message  
+  IMM 0x80             // Else, copy 0x80 to output
+  CLR MEM
+  ADM
+  CLR ACC
+MATCH_CPY_FIRST:
+  STRR +64
+  IMM 1
+  CLR MEM
+  ADM
+  IMM 64
+  CMP
+BEQ: DONE_BR  // If we've finished copying messages 0-63
+  STRR [0] // Saves address of next value to be read
+BR: COPY_MSG
+ 
+DONE_BR:
+  DONE
