@@ -36,6 +36,8 @@ wire LFSRSetSeed;
 wire LFSRSetTap;
 wire [ 6:0] LFSRIn;
 wire [ 6:0] LFSROut;
+wire [7:0]  LFSRToAlu;
+
 
 wire ALUBSelectCtrl;
 wire [ 7:0] InA, InB, 	   // ALU operand inputs
@@ -126,22 +128,34 @@ Ctrl Ctrl1 (
     	.Ack          (Ack)    // "done" flag
   );
 
+LFSRExtend LEx (
+	In(LFSROut),
+	Out(LFSRToAlu)
+);
+
+
 FourMux ALUInputBSelector(
 	.Select(ALUBSelectCtrl),
 	.A(RegOut),
 	.B(MemReadValue),
 	.C(Immediate),
-	.D(8'b00000000),//Sign extend LFSR)
+	.D(LFSRToAlu),//Sign extend LFSR)
 	.Out(InB)
+);
+
+ParityLatch SCL(
+	In (SCFromAlu),
+	Out(SCToAlu)
 );
 
 ALU ALU1  (
 	  .InputA  (AccOut),
 	  .InputB  (InB), 
-	  .SC_in   (1'b1),
+	  .SC_in   (SCToAlu),
 	  .OP      (OPCode),
 	  .Out     (ALU_out),	
-	  .Zero		               // status flag; may have others, if desired
+	  .Zero,		
+	  .SC_out (SCFromAlu)               // status flag; may have others, if desired
 );
 
 
