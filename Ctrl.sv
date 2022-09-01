@@ -167,6 +167,12 @@ always_comb	begin
 					else
 						BranchEn = 'b1;
 				end
+				4'b1111: begin // NEQ
+					if(~CMPBits[1])
+						NextState = 'b01;
+					else
+						BranchEn = 'b1;
+				end
 			endcase
 		end
 		else begin
@@ -190,9 +196,13 @@ always_comb	begin
 					4'b0101: begin  //LFSR shift
 						LFSRShift = 'b1;
 					end
-					4'b0110: begin  
+					4'b0110: begin  //LDR
+						MemAddrCtrl = 'b0;
+						OPCode = ADD;
+						AccLoadEn = 'b1;
+						ALUInput = 2'b01;
 					end	
-					4'b0111: begin  
+					4'b0111: begin  //LDR ACC
 					end
 					4'b1000: begin  //CMP 
 						CMPLoadEn = 'b1;
