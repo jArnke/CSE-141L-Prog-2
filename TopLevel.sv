@@ -3,14 +3,14 @@
 // Module Name:    TopLevel 
 // CSE141L
 // partial only										   
-module TopLevel(		   // you will have the same 3 ports
+module top_level(		   // you will have the same 3 ports
     input        Reset,	   // init/reset, active high
 			     Start,    // start next program
 	             Clk,	   // clock -- posedge used inside design
     output logic Ack	   // done flag from DUT
     );
 
-wire [ 9:0] PgmCtr;        // program counter
+wire [ 8:0] PgmCtr;        // program counter
 wire [ 8:0] PCTarg;
 wire	    BranchEn;
 
@@ -34,12 +34,13 @@ wire [ 7:0] RegOut;
 wire LFSRShift;
 wire LFSRSetSeed;
 wire LFSRSetTap;
-wire [ 6:0] LFSRIn;
 wire [ 6:0] LFSROut;
 wire [7:0]  LFSRToAlu;
 
-
-wire ALUBSelectCtrl;
+wire [7:0] Immediate;
+wire [1:0]ALUBSelectCtrl;
+wire ALUASelectCtrl;
+wire [ 7:0] SwapSecondaryOut;
 wire [ 7:0] InA, InB, 	   // ALU operand inputs
             ALU_out;       // ALU result
 wire [ 3:0] OPCode;
@@ -50,9 +51,8 @@ wire [ 7:0] MemWriteValue, // data in to data_memory
 	    ReadTarget;    //Mux to Memory
 wire	    MemAddrCtrl,
 	    MemValueCtrl;
-wire        MemWrite,	   // data_memory write enable
-			
-Zero;		   // ALU output = 0 flag
+wire        MemWrite;	   // data_memory write enable
+
 logic[15:0] CycleCt;	   // standalone; NOT PC!
 
 // Fetch stage = Program Counter + Instruction ROM
@@ -72,7 +72,7 @@ InstROM #(.W(9)) IR1(
 	.InstOut      (Instruction)
 );
 
-PreviousInstructionLatch PIL(
+PrevInstructionLatch PIL(
 	.Clk(Clk),
 	.In(InstructionOut),
 	.Out(PrevOut)
@@ -80,12 +80,13 @@ PreviousInstructionLatch PIL(
 
 CtrlStateLatch CSL(
 	.Clk(Clk),
-	.In(NextCtrlState),
-	.Out(CtrlState)
+	.StateIn(NextCtrlState),
+	.StateOut(CtrlState)
 );
 
 Comparator COMP(
 	.Clk(Clk),
+	.reset(Reset),
 	.InputA(AccOut),
 	.InputB(RegOut),
 	.En(CMPEn),
@@ -95,7 +96,7 @@ Comparator COMP(
 // Control decoder
 Ctrl Ctrl1 (
 	.Instruction  (Instruction) ,  // from instr_ROM
-	.PrevInstrunction (PrevOut),
+	.PrevInstruction (PrevOut),
 	.PrevInstructionOut (InstructionOut),
 
 	.CurrState (CtrlState),
@@ -116,7 +117,6 @@ Ctrl Ctrl1 (
 	.LFSRSetState(LFSRSetSeed),
 	.LFSRSetTapPtrn(LFSRSetTap),
 	.LFSRShift,	
-	.LFSRInput(LFSRIn),
 	
 	.MemWrEn      (MemWrite   ) ,  // data memory write enable
 	.MemAddrCtrl,
@@ -125,37 +125,37 @@ Ctrl Ctrl1 (
 
 	.ImmediateOut (Immediate),
 
+	.OPCode,
+	.ALUInput(ALUBSelectCtrl),
+	.ALUInputASelector(ALUASelectCtrl),
     	.Ack          (Ack)    // "done" flag
+	
   );
 
-LFSRExtend LEx (
-	In(LFSROut),
-	Out(LFSRToAlu)
-);
 
 
 FourMux ALUInputBSelector(
 	.Select(ALUBSelectCtrl),
-	.A(RegOut),
+	.A(SwapSecondaryOut),
 	.B(MemReadValue),
 	.C(Immediate),
 	.D(LFSRToAlu),//Sign extend LFSR)
 	.Out(InB)
 );
 
-ParityLatch SCL(
-	In (SCFromAlu),
-	Out(SCToAlu)
+TwoSwap ALUInputA(
+	.Select(ALUASelectCtrl),
+	.A(AccOut),
+	.B(RegOut),
+	.OutMain(InA),
+	.OutSecondary(SwapSecondaryOut)
 );
 
 ALU ALU1  (
-	  .InputA  (AccOut),
+	  .InputA  (InA),
 	  .InputB  (InB), 
-	  .SC_in   (SCToAlu),
 	  .OP      (OPCode),
-	  .Out     (ALU_out),	
-	  .Zero,		
-	  .SC_out (SCFromAlu)               // status flag; may have others, if desired
+	  .Out     (ALU_out)
 );
 
 
@@ -179,12 +179,17 @@ LFSR LFSRReg(
 	.Advance (LFSRShift),
 	.init 	 (LFSRSetTap),
 	.set     (LFSRSetSeed),
-	.in      (LFSRIn),
-	.out	 (LFSROut)
+	.in      (AccOut[6:0]),
+	.state	 (LFSROut)
+);
+
+LFSRExtender LEX (
+	.LFIn(LFSROut),
+	.LFOut(LFSRToAlu)
 );
 
 TwoMux MemValueSelector(
-	.Select(MemValCtrl),
+	.Select(MemValueCtrl),
 	.A(RegOut),
 	.B(AccOut),
 	.Out(MemWriteValue)
@@ -197,7 +202,7 @@ TwoMux MemAddressSelector(
 	.Out(ReadTarget)
 );
 
-DataMem DM1(
+DataMem DM(
 		.DataAddress  (ReadTarget), 
 		.WriteEn      (MemWrite), 
 		.DataIn       (MemWriteValue), 

@@ -25,7 +25,7 @@ module InstFetch #(parameter T=10)(	  // PC width -- up to 32, if you like
 	  ProgCtr <= 0;				       // for first program; want different value for 2nd or 3rd
 	else if(Start)					   // hold while start asserted; commence when released
 	  ProgCtr <= 0;                    //or <= ProgCtr;   holds at starting value
-	else if(CMP_flag)   // conditional relative jump
+	else if(CMP_Flag)   // conditional relative jump
 	  ProgCtr <= Target + ProgCtr;	   //   how would you make it unconditional and/or absolute
 	else
 	  ProgCtr <= ProgCtr+'b1; 	       // default increment (no need for ARM/MIPS +4 -- why?)

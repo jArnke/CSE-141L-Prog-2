@@ -11,7 +11,7 @@ module InstFetch #(parameter T=10)(	  // PC width -- up to 32, if you like
                        Clk,			  // PC can change on pos. edges only
                        CMP_Flag,	  // flag from ALU, e.g. Zero, Carry, Overflow, Negative (from ARM)
   input        [8:0] Target,	      // jump ... "how high?"
-  output logic [T-1:0] ProgCtr        // the program counter register itself
+  output logic [8:0] ProgCtr        // the program counter register itself
   );
 	 
 // you may wish to use either absolute or relative branching

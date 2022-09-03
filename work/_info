@@ -11,475 +11,680 @@ cModel Technology
 dC:/Users/jakey/Desktop/lab5/starter code and test bench
 vAccumulator
 Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-!s110 1660925516
+Z1 !s110 1662148922
 !i10b 1
 !s100 ZV`k?hPk8VQ4Z4YA6mjlC3
-Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
 I1h]S9WUNBd<W4P;ZTG^HM0
-Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
 S1
-Z3 dC:/Users/jakey/Desktop/CSE 141L Prog 2
+Z4 dC:/Users/jakey/Desktop/CSE 141L Prog 2
 w1660925505
 8C:/Users/jakey/Desktop/CSE 141L Prog 2/Accumulator.sv
 FC:/Users/jakey/Desktop/CSE 141L Prog 2/Accumulator.sv
-!i122 1
+!i122 568
 L0 7 22
-Z4 OV;L;2020.1;71
+Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-!s108 1660925516.000000
+Z6 !s108 1662148922.000000
 !s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/Accumulator.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/Accumulator.sv|
 !i113 1
-Z5 o-work work -sv
-Z6 tCvgOpt 0
+Z7 o-work work -sv
+Z8 tCvgOpt 0
 n@accumulator
 vALU
 R0
-Z7 DXx4 work 11 Definitions 0 22 j^^SaTAHg:BLVC6?1Unda0
-DXx4 work 11 ALU_sv_unit 0 22 giDoJ^X]iA[k_J3EE08kH1
-Z8 !s110 1661380128
-R2
+Z9 DXx4 work 11 Definitions 0 22 j^^SaTAHg:BLVC6?1Unda0
+DXx4 work 11 ALU_sv_unit 0 22 P]zMRIlDToMo;7@noGY8R0
+Z10 !s110 1662148921
+R3
 r1
 !s85 0
 !i10b 1
-!s100 FT13AiGOoWQFjRig7bSeY1
-INE4Pc`:fkQm[ef@W`5=GS3
+!s100 aOJbgUzb90Unf5PY?He0^0
+I_nNV@;cL@Mn`dXk@TUWbW1
 !s105 ALU_sv_unit
 S1
-R3
-Z9 w1661380125
-Z10 8C:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv
-Z11 FC:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv
-!i122 22
-L0 11 40
 R4
-31
-Z12 !s108 1661380128.000000
-Z13 !s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv|
-Z14 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv|
-!i113 1
+Z11 w1662138737
+Z12 8C:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv
+Z13 FC:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv
+!i122 559
+Z14 L0 11 36
 R5
-R6
+31
+Z15 !s108 1662148921.000000
+Z16 !s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv|
+Z17 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/ALU.sv|
+!i113 1
+R7
+R8
 n@a@l@u
 XALU_sv_unit
 R0
-R7
-R8
-VgiDoJ^X]iA[k_J3EE08kH1
+R9
+R10
+VP]zMRIlDToMo;7@noGY8R0
 r1
 !s85 0
 !i10b 1
-!s100 k8FUi56gki[@E@l04KR[70
-IgiDoJ^X]iA[k_J3EE08kH1
+!s100 :XG;GWz>MZ?DckmkkXcD40
+IP]zMRIlDToMo;7@noGY8R0
 !i103 1
 S1
-R3
-R9
-R10
-R11
-!i122 22
-L0 9 0
 R4
-31
+R11
 R12
 R13
-R14
-!i113 1
+!i122 559
+L0 9 0
 R5
-R6
+31
+R15
+R16
+R17
+!i113 1
+R7
+R8
 n@a@l@u_sv_unit
 vComparator
 R0
-!s110 1661366746
+Z18 !s110 1662148923
 !i10b 1
-!s100 U@Bklh7RCB@`NIUQMYDO[0
-R1
-I2@3IEdAUeh24LM^4ib6E]3
+!s100 j_Je23_[SZSZZ2^baReDG0
 R2
-S1
+IJ<Yl^6GBXfK17@:;NNB<O3
 R3
-w1661366741
+S1
+R4
+w1662146529
 8C:/Users/jakey/Desktop/CSE 141L Prog 2/Comparator.sv
 FC:/Users/jakey/Desktop/CSE 141L Prog 2/Comparator.sv
-!i122 14
-L0 1 16
-R4
+!i122 574
+Z19 L0 1 20
+R5
 r1
 !s85 0
 31
-!s108 1661366745.000000
+Z20 !s108 1662148923.000000
 !s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/Comparator.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/Comparator.sv|
 !i113 1
-R5
-R6
+R7
+R8
 n@comparator
 vCtrl
 R0
-R7
-DXx4 work 12 Ctrl_sv_unit 0 22 Ko>W2oOmW5g?3GlJlC]ol1
-Z15 !s110 1661382838
-R2
+R9
+DXx4 work 12 Ctrl_sv_unit 0 22 _ZaU:]i2[chg9I37FUe<<1
+R10
+R3
 r1
 !s85 0
 !i10b 1
-!s100 8=J?P3dLh24Vj_m9P?Yj:0
-I8l4zFmL0ZIhXdjef7a_D12
+!s100 >a6:U1JH_Bi7[za7HI=3m2
+I2;?J4dbl5]h2n7MbJZIV23
 !s105 Ctrl_sv_unit
 S1
-R3
-Z16 w1661382831
-Z17 8C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv
-Z18 FC:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv
-!i122 27
-L0 6 462
 R4
-31
-Z19 !s108 1661382837.000000
-Z20 !s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv|
-Z21 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv|
-!i113 1
+Z21 w1662145575
+Z22 8C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv
+Z23 FC:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv
+!i122 560
+L0 6 454
 R5
-R6
+31
+R15
+Z24 !s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv|
+Z25 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/Ctrl.sv|
+!i113 1
+R7
+R8
 n@ctrl
 XCtrl_sv_unit
 R0
-R7
-R15
-VKo>W2oOmW5g?3GlJlC]ol1
+R9
+R10
+V_ZaU:]i2[chg9I37FUe<<1
 r1
 !s85 0
 !i10b 1
-!s100 CCj3D_XhCc6A4a<ObjAV[0
-IKo>W2oOmW5g?3GlJlC]ol1
+!s100 R884I=_:g0[>i6K[f@F630
+I_ZaU:]i2[chg9I37FUe<<1
 !i103 1
 S1
-R3
-R16
-R17
-R18
-!i122 27
-L0 2 0
 R4
-31
-R19
-R20
 R21
-!i113 1
+R22
+R23
+!i122 560
+L0 2 0
 R5
-R6
+31
+R15
+R24
+R25
+!i113 1
+R7
+R8
 n@ctrl_sv_unit
 vCtrlStateLatch
 R0
-!s110 1661373949
+R18
 !i10b 1
 !s100 @ReR^8ZSZEHILLLjf989e3
-R1
-ISdm8>75JJJeO<o08GChh[0
 R2
-S1
+ISdm8>75JJJeO<o08GChh[0
 R3
+S1
+R4
 w1661373944
 8C:/Users/jakey/Desktop/CSE 141L Prog 2/CtrlStateLatch.sv
 FC:/Users/jakey/Desktop/CSE 141L Prog 2/CtrlStateLatch.sv
-!i122 15
-Z22 L0 4 12
-R4
+!i122 572
+Z26 L0 4 12
+R5
 r1
 !s85 0
 31
-!s108 1661373949.000000
+R20
 !s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/CtrlStateLatch.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/CtrlStateLatch.sv|
 !i113 1
-R5
-R6
+R7
+R8
 n@ctrl@state@latch
 vDataMem
 R0
-!s110 1660928348
+R10
 !i10b 1
 !s100 R@Fab9j]DkZMWLDbmlF@X2
-R1
-ImkE<FM;:Zhh7JSG6`n<1i1
 R2
-S1
+I1[5`a@;hCTm;T_OZ9]G1<2
 R3
-Z23 w1660923418
-8C:\Users\jakey\Desktop\CSE 141L Prog 2\DataMem.sv
-FC:\Users\jakey\Desktop\CSE 141L Prog 2\DataMem.sv
-!i122 5
-L0 15 36
+S1
 R4
+Z27 w1660923418
+8C:/Users/jakey/Desktop/CSE 141L Prog 2/DataMem.sv
+FC:/Users/jakey/Desktop/CSE 141L Prog 2/DataMem.sv
+!i122 561
+L0 15 36
+R5
 r1
 !s85 0
 31
-!s108 1660928347.000000
-!s107 C:\Users\jakey\Desktop\CSE 141L Prog 2\DataMem.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:\Users\jakey\Desktop\CSE 141L Prog 2\DataMem.sv|
+R15
+!s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/DataMem.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/DataMem.sv|
 !i113 1
-R5
-R6
+R7
+R8
 n@data@mem
+vdecrypt_tb
+R0
+Z28 !s110 1662148924
+!i10b 1
+!s100 12dLRbCWNFi5S0@J1`54^2
+R2
+I6YX8AP`>e^la]gc>eUe>Z2
+R3
+S1
+R4
+w1662077493
+8C:/Users/jakey/Desktop/CSE 141L Prog 2/program2_tb.sv
+FC:/Users/jakey/Desktop/CSE 141L Prog 2/program2_tb.sv
+!i122 579
+L0 5 153
+R5
+r1
+!s85 0
+31
+Z29 !s108 1662148924.000000
+!s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/program2_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/program2_tb.sv|
+!i113 1
+R7
+R8
 XDefinitions
 R0
-!s110 1661380047
+R10
 !i10b 1
 !s100 aO^N>a9PjIUfGC^IC2M=61
-R1
+R2
 Ij^^SaTAHg:BLVC6?1Unda0
 Vj^^SaTAHg:BLVC6?1Unda0
 S1
-R3
+R4
 w1661376781
 8C:/Users/jakey/Desktop/CSE 141L Prog 2/Definitions.sv
 FC:/Users/jakey/Desktop/CSE 141L Prog 2/Definitions.sv
-!i122 18
+!i122 562
 L0 8 0
-R4
+R5
 r1
 !s85 0
 31
-!s108 1661380047.000000
+R15
 !s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/Definitions.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/Definitions.sv|
 !i113 1
-R5
-R6
+R7
+R8
 n@definitions
+vencrypt_tb
+R0
+R1
+!i10b 1
+!s100 :781_7=^Ne4a^NN[0U[jV0
+R2
+IWdP:DG2Q0m=49MYeWY[A80
+R3
+S1
+R4
+R27
+8C:/Users/jakey/Desktop/CSE 141L Prog 2/program1_tb1.sv
+FC:/Users/jakey/Desktop/CSE 141L Prog 2/program1_tb1.sv
+!i122 566
+L0 5 152
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/program1_tb1.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/program1_tb1.sv|
+!i113 1
+R7
+R8
 vFourMux
 R0
-!s110 1661381614
+R18
 !i10b 1
-!s100 3?_?>bPSzlN2OhDUIB3?[0
-R1
-I5[WgDia1>nJ<DagOA_CN61
+!s100 XJCGoo0HAA8FS`G_h]Jhl0
 R2
-S1
+If?egcjEeDWU78ml?01R^_2
 R3
-w1661381609
-8C:/Users/jakey/Desktop/CSE 141L Prog 2/TwoMux.sv
-FC:/Users/jakey/Desktop/CSE 141L Prog 2/TwoMux.sv
-!i122 25
-L0 2 19
+S1
 R4
+w1661374206
+8C:/Users/jakey/Desktop/CSE 141L Prog 2/FourMux.sv
+FC:/Users/jakey/Desktop/CSE 141L Prog 2/FourMux.sv
+!i122 575
+L0 1 23
+R5
 r1
 !s85 0
 31
-!s108 1661381614.000000
-!s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/TwoMux.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/TwoMux.sv|
+R20
+!s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/FourMux.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/FourMux.sv|
 !i113 1
-R5
-R6
+R7
+R8
 n@four@mux
+vImmediate_LUT
+R0
+R1
+!i10b 1
+!s100 d=3Tl>3R1FF0T6knWkB]k0
+R2
+I;aO24D^VgUDLU5^]oc0n42
+R3
+S1
+R4
+R27
+8C:/Users/jakey/Desktop/CSE 141L Prog 2/Immediate_LUT.sv
+FC:/Users/jakey/Desktop/CSE 141L Prog 2/Immediate_LUT.sv
+!i122 563
+L0 7 15
+R5
+r1
+!s85 0
+31
+R15
+!s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/Immediate_LUT.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/Immediate_LUT.sv|
+!i113 1
+R7
+R8
+n@immediate_@l@u@t
 vInstFetch
 R0
-!s110 1660928268
-!i10b 1
-!s100 jGY1iYTi128bXbKKR_L7L0
 R1
-I@dgnkl[`Nj[<^K8K4UX7d3
+!i10b 1
+!s100 @2??IGzF8H`IQcj2kjCcS1
 R2
-S1
+IENVEX[A=gCnOhi=mWz9`<3
 R3
-w1660928264
+S1
+R4
+w1662074908
 8C:/Users/jakey/Desktop/CSE 141L Prog 2/InstFetch.sv
 FC:/Users/jakey/Desktop/CSE 141L Prog 2/InstFetch.sv
-!i122 4
+!i122 564
 L0 8 26
-R4
+R5
 r1
 !s85 0
 31
-!s108 1660928268.000000
+R6
 !s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/InstFetch.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/InstFetch.sv|
 !i113 1
-R5
-R6
+R7
+R8
 n@inst@fetch
 vInstROM
 R0
-!s110 1660926788
-!i10b 1
-!s100 ROdbc81DAHSNo`i=2aTNH2
 R1
-IPHPdCcK0<Fl0kD;YEgSY_1
+!i10b 1
+!s100 Rn1Kh2lncXJ@YXM]KZ^W[1
 R2
-S1
+IXLiY<0>ei24aHezjm8Jb23
 R3
-R23
+S1
+R4
+w1662074906
 8C:/Users/jakey/Desktop/CSE 141L Prog 2/InstROM.sv
 FC:/Users/jakey/Desktop/CSE 141L Prog 2/InstROM.sv
-!i122 3
+!i122 565
 L0 13 44
-R4
+R5
 r1
 !s85 0
 31
-!s108 1660926788.000000
+R6
 !s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/InstROM.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/InstROM.sv|
 !i113 1
-R5
-R6
+R7
+R8
 n@inst@r@o@m
 vLFSR
 R0
-!s110 1661023134
+R18
 !i10b 1
 !s100 ce17f<9SH5f]UILDEigim2
-R1
-I@9UI5o_JODalLBP53F4Ob0
 R2
-S1
+I@9UI5o_JODalLBP53F4Ob0
 R3
+S1
+R4
 w1661023131
 8C:/Users/jakey/Desktop/CSE 141L Prog 2/LFSR.sv
 FC:/Users/jakey/Desktop/CSE 141L Prog 2/LFSR.sv
-!i122 9
+!i122 570
 L0 7 23
-R4
+R5
 r1
 !s85 0
 31
-!s108 1661023134.000000
+R6
 !s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/LFSR.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/LFSR.sv|
 !i113 1
-R5
-R6
+R7
+R8
 n@l@f@s@r
-vMemoryReg
+vLFSRExtend
 R0
-!s110 1660925636
+!s110 1662076238
 !i10b 1
-!s100 W2AOzQYDZUCBZIgL7gPIW2
-R1
-IN2f=9S`@HFU?SRPU?Jb<A3
+!s100 [EQm@DEMD4_LTRPzNW7T71
 R2
-S1
+IMXXNKclGG8z52dRkzR=3M2
 R3
-w1660925629
-8C:/Users/jakey/Desktop/CSE 141L Prog 2/MemoryReg.sv
-FC:/Users/jakey/Desktop/CSE 141L Prog 2/MemoryReg.sv
-!i122 2
-L0 8 22
+S1
 R4
+w1662076228
+Z30 8C:/Users/jakey/Desktop/CSE 141L Prog 2/LFSRExtend.sv
+Z31 FC:/Users/jakey/Desktop/CSE 141L Prog 2/LFSRExtend.sv
+!i122 375
+Z32 L0 1 11
+R5
 r1
 !s85 0
 31
-!s108 1660925636.000000
+!s108 1662076237.000000
+Z33 !s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/LFSRExtend.sv|
+Z34 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/LFSRExtend.sv|
+!i113 1
+R7
+R8
+n@l@f@s@r@extend
+vLFSRExtender
+R0
+R28
+!i10b 1
+!s100 GD>FUAd>D[Gzhnbek8faJ1
+R2
+IlkL_=@iNK7j;LeNTDFaIn2
+R3
+S1
+R4
+w1662076314
+R30
+R31
+!i122 578
+R32
+R5
+r1
+!s85 0
+31
+R29
+R33
+R34
+!i113 1
+R7
+R8
+n@l@f@s@r@extender
+vMemoryReg
+R0
+R1
+!i10b 1
+!s100 5fNe@ZN=LojVOVMnY>NVY3
+R2
+I1fSfM2YhPF@]8h8QK3=j01
+R3
+S1
+R4
+w1662138308
+8C:/Users/jakey/Desktop/CSE 141L Prog 2/MemoryReg.sv
+FC:/Users/jakey/Desktop/CSE 141L Prog 2/MemoryReg.sv
+!i122 569
+L0 8 23
+R5
+r1
+!s85 0
+31
+R6
 !s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/MemoryReg.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/MemoryReg.sv|
 !i113 1
-R5
-R6
+R7
+R8
 n@memory@reg
 vParityLatch
 R0
-!s110 1660929110
+R18
 !i10b 1
-!s100 AA^TnlaBKYg<7f<chP9Tc0
-R1
-If[GKX1LAcLzAS[3h:C;XT3
+!s100 Xz6h[_Goc>Hdlkg=MHm>]0
 R2
-S1
+Ii[I]=YDn=Y7`ONRkcXIff2
 R3
-w1660929107
+S1
+R4
+w1662057007
 8C:/Users/jakey/Desktop/CSE 141L Prog 2/ParityLatch.sv
 FC:/Users/jakey/Desktop/CSE 141L Prog 2/ParityLatch.sv
-!i122 6
+!i122 571
 L0 3 12
-R4
+R5
 r1
 !s85 0
 31
-!s108 1660929110.000000
+R20
 !s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/ParityLatch.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/ParityLatch.sv|
 !i113 1
-R5
-R6
+R7
+R8
 n@parity@latch
 vPrevInstructionLatch
 R0
-!s110 1661016766
+R18
 !i10b 1
 !s100 G7E;3V>z_3CQ_EJ=[ab?51
-R1
-I1I6<P4S6U?l80zRIT4eTa1
 R2
-S1
+I1I6<P4S6U?l80zRIT4eTa1
 R3
+S1
+R4
 w1661016763
 8C:/Users/jakey/Desktop/CSE 141L Prog 2/PrevInstructionLatch.sv
 FC:/Users/jakey/Desktop/CSE 141L Prog 2/PrevInstructionLatch.sv
-!i122 8
-R22
-R4
+!i122 573
+R26
+R5
 r1
 !s85 0
 31
-!s108 1661016766.000000
+R20
 !s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/PrevInstructionLatch.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/PrevInstructionLatch.sv|
 !i113 1
-R5
-R6
+R7
+R8
 n@prev@instruction@latch
 vRegFile
 R0
-!s110 1660925509
+R1
 !i10b 1
 !s100 J@fGMo]21S;Hg14bM:bNH1
-R1
-IjejiUdai0>CEGi]EzX]MI2
 R2
-S1
+I2CGT9=da83j^E]WJ_FYZG1
 R3
-R23
-8C:\Users\jakey\Desktop\CSE 141L Prog 2\RegFile.sv
-FC:\Users\jakey\Desktop\CSE 141L Prog 2\RegFile.sv
-!i122 0
-L0 11 36
+S1
 R4
+R27
+8C:/Users/jakey/Desktop/CSE 141L Prog 2/RegFile.sv
+FC:/Users/jakey/Desktop/CSE 141L Prog 2/RegFile.sv
+!i122 567
+R14
+R5
 r1
 !s85 0
 31
-!s108 1660925508.000000
-!s107 C:\Users\jakey\Desktop\CSE 141L Prog 2\RegFile.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:\Users\jakey\Desktop\CSE 141L Prog 2\RegFile.sv|
-!i113 1
-R5
 R6
+!s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/RegFile.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/RegFile.sv|
+!i113 1
+R7
+R8
 n@reg@file
+vtop_level
+R0
+R28
+!i10b 1
+!s100 :iBI2Hn:[z^6^AehMg^:V3
+R2
+I69mUZYdXf8jo4<U29=mRR3
+R3
+S1
+R4
+w1662148907
+Z35 8C:/Users/jakey/Desktop/CSE 141L Prog 2/TopLevel.sv
+Z36 FC:/Users/jakey/Desktop/CSE 141L Prog 2/TopLevel.sv
+!i122 577
+L0 6 221
+R5
+r1
+!s85 0
+31
+R29
+Z37 !s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/TopLevel.sv|
+Z38 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/TopLevel.sv|
+!i113 1
+R7
+R8
 vTopLevel
 R0
-!s110 1661383804
+!s110 1661996235
 !i10b 1
-!s100 jSe<X@=7056e>Ln3nAl<]0
-R1
-IoAN>01M0JdNeI?m6HcN4U1
+!s100 KcP;jNGhIL3j9hC1MkT5W3
 R2
-S1
+IO<SJ@FDlEZAkBTK?c@0^T1
 R3
-w1661383801
-8C:/Users/jakey/Desktop/CSE 141L Prog 2/TopLevel.sv
-FC:/Users/jakey/Desktop/CSE 141L Prog 2/TopLevel.sv
-!i122 29
-L0 6 202
+S1
 R4
+w1661618989
+R35
+R36
+!i122 33
+L0 6 216
+R5
 r1
 !s85 0
 31
-!s108 1661383804.000000
-!s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/TopLevel.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/TopLevel.sv|
+!s108 1661996234.000000
+R37
+R38
 !i113 1
-R5
-R6
+R7
+R8
 n@top@level
+vTwoMux
+R0
+R18
+!i10b 1
+!s100 H]6RSaUfXkd8_jMLlHC^d0
+R2
+I4ZL]zHGkS_JVX8^hT:P;U3
+R3
+S1
+R4
+w1662147191
+8C:/Users/jakey/Desktop/CSE 141L Prog 2/TwoMux.sv
+FC:/Users/jakey/Desktop/CSE 141L Prog 2/TwoMux.sv
+!i122 576
+L0 2 18
+R5
+r1
+!s85 0
+31
+R20
+!s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/TwoMux.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/TwoMux.sv|
+!i113 1
+R7
+R8
+n@two@mux
+vTwoSwap
+R0
+R28
+!i10b 1
+!s100 [Z2^U]E;BUV8Zmi>G;ERH3
+R2
+IPPUk<;mMJ]RG2^^XOnSI<0
+R3
+S1
+R4
+w1662143293
+8C:/Users/jakey/Desktop/CSE 141L Prog 2/TwoSwap.sv
+FC:/Users/jakey/Desktop/CSE 141L Prog 2/TwoSwap.sv
+!i122 580
+R19
+R5
+r1
+!s85 0
+31
+R29
+!s107 C:/Users/jakey/Desktop/CSE 141L Prog 2/TwoSwap.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jakey/Desktop/CSE 141L Prog 2/TwoSwap.sv|
+!i113 1
+R7
+R8
+n@two@swap
