@@ -2,13 +2,13 @@
 
 module ParityLatch #()(		 // W = data path width (leave at 8); D = address pointer width
 	input	Clk,
-		ParityIn,
+		In,
 	
-	output logic ParityOut
+	output logic Out
     );
 
 always_ff @ (posedge Clk) begin
-	ParityOut <= ParityIn;
+	Out <= In;
 end
 
 endmodule

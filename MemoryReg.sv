@@ -19,11 +19,12 @@ logic [W-1:0] Register;
 assign DataOut = Register;
 
 // sequential (clocked) writes 
-always_ff @ (posedge Clk)
+always_ff @ (posedge Clk)begin
   if (Reset) begin
 	Register <= 'h0;
   end
   else if (WriteEn)	                         // works just like data_memory writes
     Register <= DataIn;
+end
 
 endmodule

@@ -11,24 +11,22 @@ import Definitions::*;
 module ALU #(parameter W=8)(
   input        [W-1:0]   InputA,       // data inputs
                          InputB,
-  input        op_mne    OP,           // ALU opcode, part of microcode
-  input                  SC_in,        // shift or carry in
-  output logic [W-1:0]   Out,          // data output
-  output logic           Zero,         // output = zero flag    !(Out)
-                         Parity,       // outparity flag        ^(Out)
-                         Odd,          // output odd flag        (Out[0])
-						 SC_out        // shift or carry out
+  input [3:0]OP,// ALU opcode, part of microcode
+  output logic [W-1:0]   Out         // data output
+
   // you may provide additional status flags, if desired
   // comment out or delete any you don't need
 );
-
+logic SC_out;
+logic SC_in;
 always_comb begin
 // No Op = default
 // add desired ALU ops, delete or comment out any you don't need
   Out = 8'b0;				                        // don't need NOOP? Out = 8'bx
-  SC_out = 1'b0;		 							// 	 will flag any illegal opcodes
+  SC_out = 1'b0;	
+  SC_in = 1'b0; 							// 	 will flag any illegal opcodes
   case(OP)
-    ADD : {SC_out,Out} = InputA + InputB + SC_in;   // unsigned add with carry-in and carry-out
+    ADD : {SC_out,Out} = InputA + InputB + SC_in;  // unsigned add with carry-in and carry-out
     LSH : {SC_out,Out} = {InputA[7:0],SC_in};       // shift left, fill in with SC_in, fill SC_out with InputA[7]
 // for logical left shift, tie SC_in = 0
     LSHZ: {SC_out,Out} = {InputA[7:0],1'b0};
@@ -43,9 +41,7 @@ always_comb begin
   endcase
 end
 
-assign Zero   = ~|Out;                  // reduction NOR	 Zero = !Out; 
-assign Parity = ^Out;                   // reduction XOR
-assign Odd    = Out[0];                 // odd/even -- just the value of the LSB
+
 
 endmodule
 

@@ -28,15 +28,14 @@ module Ctrl (
 		LFSRSetTapPtrn,
 		LFSRShift,	
 
-
+  output logic ALUInputASelector, //0 = ACC, 1 = REG
   output logic[3:0] OPCode,
   output logic[1:0] ALUInput,
   output logic[1:0] NextState,
   output logic[8:0] PrevInstructionOut,
-  output logic[6:0] LFSRInput,
   output logic[8:0] BranchTarget,
   output logic[7:0] ImmediateOut,
-  output logic[8:0] MemoryTarget
+  output logic[7:0] MemoryTarget
   );
 
 	
@@ -106,6 +105,7 @@ always_comb	begin
 	//ALU Controls
 	OPCode = 3'b000;
 	ImmediateOut = Instruction[7:0];
+	ALUInputASelector = 'b0;
 	ALUInput = 2'b00;
 
 	//Register Controls
@@ -120,7 +120,6 @@ always_comb	begin
 	LFSRSetState = 'b0;
 	LFSRSetTapPtrn = 'b0;
 	LFSRShift = 'b0;
-	LFSRInput = Instruction[6:0];
 	Ack = 'b0;
 
    	case(CurrState)
@@ -167,6 +166,12 @@ always_comb	begin
 					else
 						BranchEn = 'b1;
 				end
+				4'b1111: begin // NEQ
+					if(~CMPBits[1])
+						NextState = 'b01;
+					else
+						BranchEn = 'b1;
+				end
 			endcase
 		end
 		else begin
@@ -190,9 +195,13 @@ always_comb	begin
 					4'b0101: begin  //LFSR shift
 						LFSRShift = 'b1;
 					end
-					4'b0110: begin  
+					4'b0110: begin  //LDR
+						MemAddrCtrl = 'b0;
+						OPCode = ADD;
+						AccLoadEn = 'b1;
+						ALUInput = 2'b01;
 					end	
-					4'b0111: begin  
+					4'b0111: begin  //LDR ACC
 					end
 					4'b1000: begin  //CMP 
 						CMPLoadEn = 'b1;
@@ -233,6 +242,7 @@ always_comb	begin
 								AccLoadEn = 'b1;
 							end //SUB
 							4'b0011: begin
+								ALUInputASelector = 'b1;
 								OPCode = ADD;
 								RegLoadEn = 'b1;
 							end //ADM
@@ -283,6 +293,7 @@ always_comb	begin
 								AccLoadEn = 'b1;
 							end //SUB
 							4'b0011: begin
+								ALUInputASelector = 'b1;
 								OPCode = ADD;
 								RegLoadEn = 'b1;
 							end //ADM
@@ -339,6 +350,7 @@ always_comb	begin
 					AccLoadEn = 'b1;
 				end
 				4'b0011: begin//ADM
+					ALUInputASelector = 'b1;
 					OPCode = ADD;
 					RegLoadEn = 'b1;
 				end
@@ -367,58 +379,38 @@ always_comb	begin
 		//copy over math section from normal state
 		OPCode = ADD;
 		ALUInput = 'b10;
-		ImmediateOut = Instruction[6:0];
-				case(PrevInstruction[3:2])  //Argument Field
-					2'b00:  //Use memory as argument
-						case(PrevInstruction[7:4])
-							4'b0001: begin 
-								OPCode = ADD;
-								AccLoadEn = 'b1;
-							end //ADD
-							4'b0010: begin 
-								OPCode = SUB;
-								AccLoadEn = 'b1;
-							end //SUB
-							4'b0011: begin
-								OPCode = ADD;
-								RegLoadEn = 'b1;
-							end //ADM
-							4'b0100: begin
-								if (PrevInstruction[1])
-									OPCode = RSH;
-								else
-									OPCode = RSHZ;
-								AccLoadEn = 'b1;
-							end //RSH
-							4'b0101: begin 
-								OPCode = AND;
-								AccLoadEn = 'b1;
-							end //AND
-							4'b0110: begin 
-								OPCode = OR;
-								AccLoadEn = 'b1;
-							end //OR
-							4'b0111: begin 
-								OPCode = XOR;
-								AccLoadEn = 'b1;
-							end //XOR
-							4'b1000: begin 
-								OPCode = XORA;
-								AccLoadEn = 'b1; 
-							end //XOR
-							4'b1001: begin
-								if (PrevInstruction[1])
-									OPCode = RSH;
-								else
-									OPCode = RSHZ;
-								AccLoadEn = 'b1;
-							end //LSH
-						endcase
-					2'b10:  //Use Immediate
-						NextState = 'b10;
-					2'b01:  //Use Target value
-						NextState = 'b01;
-				endcase
+		case(PrevInstruction[7:4])
+			4'b0001: begin 
+				OPCode = ADD;
+				AccLoadEn = 'b1;
+			end //ADD
+			4'b0010: begin //SUB
+				OPCode = SUB;
+				AccLoadEn = 'b1;
+			end
+			4'b0011: begin//ADM
+				ALUInputASelector = 'b1;
+				OPCode = ADD;
+				RegLoadEn = 'b1;
+			end
+			4'b0100: begin end
+			4'b0101: begin //AND
+				OPCode = AND;
+				AccLoadEn = 'b1;
+			end
+			4'b0110: begin //OR
+				OPCode = OR;
+				AccLoadEn = 'b1;
+			end
+			4'b0111: begin //XOR
+				OPCode = XOR;
+				AccLoadEn = 'b1;
+			end
+			4'b1000: begin //XORA
+				OPCode = XORA;
+				AccLoadEn = 'b1; 
+				end
+		endcase
 	end
 	2'b11: begin	//NOP
 	
