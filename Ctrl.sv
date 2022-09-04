@@ -149,7 +149,7 @@ always_comb	begin
 						BranchEn = 'b1;
 				end
 				4'b1100: begin //LT
-					if(~CMPBits[0])
+					if(~CMPBits[0] & ~CMPBits[1])
 						NextState = 'b01;
 					else
 						BranchEn = 'b1;
