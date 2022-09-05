@@ -28,7 +28,8 @@
 0 0000 0010 //   CLR MEM
 0 0001 0100 //   ADD [65]
 1 0100 0001 //   OFFSET 65
-0 0001 0000 //   ADD *ACC // Loads value from last read to ACC
+0 0011 0000 //   ADM
+0 0000 0110 //   LDR
 0 0010 1000 //   SUB IMM 65
 1 0100 0001 //   IMM 65
 1 1001 0000 // BZ: LOAD_SPACE // If value is zero, add space instead
@@ -91,8 +92,8 @@
 0 0000 0001 //   CLR ACC
 0 0001 0100 //   ADD [0]
 1 0000 0000 //   TARGET 0
-0 0001 0100 //   ADD *ACC // Read in next message
-0 0000 0000 //   OFFSET 0
+0 0011 0000 //   ADM
+0 0000 0110 //   LDR
 0 0001 0100 //   SUB [0]
 1 0000 0000 //   TARGET 0
 0 1000 0000 //   XORA          // Get parity of ACC
@@ -102,8 +103,8 @@
 0 0000 0010 //   CLR MEM
 0 0001 0100 //   ADD [0]
 1 0000 0000 //   TARGET 0
-0 0001 0100 //   ADD *ACC // Read in last message
-0 0000 0000 //   OFFSET 0
+0 0011 0000 //   ADM
+0 0000 0110 //   LDR
 0 0001 0100 //   SUB [0]
 1 0000 0000 //   TARGET 0
 1 1110 0000 // BEQ: MATCH_CPY // If message matches parity, copy message  
