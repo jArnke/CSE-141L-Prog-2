@@ -9,7 +9,7 @@
 1 1001 0000 // BZ: INC_SPACE
 0 0000 0010 //   OFFSET +2
 1 0000 0000 // BR: COPY_TO_BEG_FIRST
-T 0000 0100 //   OFFSET +4
+0 0000 0100 //   OFFSET +4
 0 0000 0000 // INC_SPACE: // Label for instruction, increment loop looking for first non-space
 0 0001 1000 //   ADD IMM 1   // Add 1 to ACC, which is zero since program branched here
 0 0000 0001 //   IMM 1
@@ -34,7 +34,7 @@ T 0000 0100 //   OFFSET +4
 1 1001 0000 // BZ: LOAD_SPACE // If value is zero, add space instead
 0 0000 0010 // OFFSET +2
 1 0000 0000 // B: CNT_COPY_BEG
-T 0000 0011 // OFFSET +3
+0 0000 0011 // OFFSET +3
 0 0000 0000 // LOAD_SPACE:
 0 0001 1000 //   ADD 0x20
 0 0010 0000 //   IMM 0x20
