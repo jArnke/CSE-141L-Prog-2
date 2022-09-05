@@ -4,16 +4,16 @@
 // runs program 2 (decrypt a message), but with corruption
 module decrypt_depad_tb ()        ;
 // DUT interface
-  logic      clk   = 1'b0   ,      // advances simulation step-by-step
+  bit        clk            ,          // advances simulation step-by-step
              init  = 1'b1   ,      // init (reset) command to DUT
              start = 1'b1   ;      // req (start program) command to DUT
   wire       done           ;      // done flag returned by DUT
 // test bench parameters
-  logic[3:0] pre_length     ;      // space char. bytes before first char. in message  
+  logic[7:0] pre_length     ;      // space char. bytes before first char. in message  
   logic[7:0] message1[49]   ,      // original raw message, in binary
              msg_padded1[80],      // original message, plus pre- and post-padding w/ ASCII spaces
              msg_crypto1[64];      // encrypted message according to the DUT
-  logic[6:0] lfsr_ptrn      ,      // chosen one of 9 maximal length 7-tap shift reg. ptrns
+  logic[7:0] lfsr_ptrn      ,      // chosen one of 9 maximal length 7-tap shift reg. ptrns
              LFSR_ptrn[9]   ,      // the 9 candidate maximal-length 7-bit LFSR tap ptrns
              lfsr1[64]      ,      // states of program 1 encrypting LFSR
              LFSR_init      ;      // one of 127 possible NONZERO starting states
@@ -68,10 +68,10 @@ module decrypt_depad_tb ()        ;
 
 // ***** instantiate your own top level design here *****
   top_level dut(
-    .clk     (clk  ),   // input: use your own port names, if different
-    .init    (init ),   // input: some prefer to call this ".reset"
-    .req     (start),   // input: launch program
-    .ack     (done )    // output: "program run complete"
+    .Clk     (clk  ),   // input: use your own port names, if different
+    .Reset   (init ),   // input: some prefer to call this ".reset"
+    .Start   (start),   // input: launch program
+    .Ack     (done )    // output: "program run complete"
   );
 
   initial begin
