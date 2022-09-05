@@ -276,6 +276,11 @@ always_comb	begin
 									OPCode = LSHZ;
 								AccLoadEn = 'b1;
 							end //LSH
+  							4'b1010: begin
+								ALUInputASelector = 'b1;
+								OPCode = SUB;
+								RegLoadEn = 'b1;
+							end //SBM
 						endcase
 					2'b10:  //Use Immediate
 						NextState = 'b10;
@@ -314,6 +319,11 @@ always_comb	begin
 								OPCode = XORA;
 								AccLoadEn = 'b1; 
 							end //XORA
+  							4'b1010: begin
+								ALUInputASelector = 'b1;
+								OPCode = SUB;
+								RegLoadEn = 'b1;
+							end //SBM
 						endcase
 					end
 				endcase
@@ -371,6 +381,11 @@ always_comb	begin
 					OPCode = XORA;
 					AccLoadEn = 'b1; 
 					end
+  				4'b1010: begin
+					ALUInputASelector = 'b1;
+					OPCode = SUB;
+					RegLoadEn = 'b1;
+				end //SBM
 			endcase
 		end
 	end
