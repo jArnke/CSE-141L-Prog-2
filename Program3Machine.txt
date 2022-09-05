@@ -1,6 +1,6 @@
 0 0000 0000 // BEGIN:
-0 0000 0100 //   CLR ACC //Set ACC and MEM to zero
-0 0000 0101 //   CLR MEM
+0 0000 0001 //   CLR ACC //Set ACC and MEM to zero
+0 0000 0010 //   CLR MEM
 0 0000 0000 // CHECK_SPACE:
 0 0001 0100 //   ADD [0] // Read in the value where the accumulator is pointing [0] to ACC
 1 0000 0000 //   TARGET 0
@@ -24,8 +24,8 @@
 0 0000 1101 //   STRR [65] // We can store the last address we read in here
 1 0100 0001 //   TARGET 65
 0 0000 0000 // COPY_TO_BEG:
-0 0000 0100 //   CLR ACC
-0 0000 0101 //   CLR MEM
+0 0000 0001 //   CLR ACC
+0 0000 0010 //   CLR MEM
 0 0001 0100 //   ADD [65]
 1 0100 0001 //   OFFSET 65
 0 0001 0000 //   ADD *ACC // Loads value from last read to ACC
@@ -40,14 +40,14 @@
 0 0010 0000 //   IMM 0x20
 0 0000 0000 // CNT_COPY_BEG:
 0 0011 0000 //   ADM     // Move value that was in the read address to MEM
-0 0000 0100 //   CLR ACC
+0 0000 0001 //   CLR ACC
 0 0001 0100 //   ADD [65]
 1 0100 0001 //   OFFSET 65
 0 0010 0000 //   SUB [64] // Get address at the beginning to read message to
 1 0100 0000 //   OFFSET 64
 0 0000 1101 //   STRR +0 // Saves value in MEM to the value in ACC +0
 1 0000 0000 //   TARGET 0
-0 0000 0100 //   CLR ACC
+0 0000 0001 //   CLR ACC
 0 0001 1000 //   ADD IMM 1
 1 0000 0001 //   IMM 1
 0 0001 0100 //   ADD [65]
@@ -71,24 +71,24 @@
 0 1000 0000 //   XORA          // Get parity of ACC
 0 0101 0000 //   AND MEM       // AND parity and MSB of stored message
 0 0000 1000 //   CMP
-0 0000 0100 //   CLR ACC
-0 0000 0101 //   CLR MEM
+0 0000 0001 //   CLR ACC
+0 0000 0010 //   CLR MEM
 0 0001 0100 //   ADD [0]
 1 0000 0000 //   TARGET 0
 0 0011 0000 //   ADM
-0 0000 0100 //   CLR ACC
+0 0000 0001 //   CLR ACC
 0 0000 0000 // BEQ: MATCH_CPY_FIRST // If message matches parity, copy message
 0 0000 0000 //   IMM 0x80             // Else, copy 0x80 to output
-0 0000 0101 //   CLR MEM
+0 0000 0010 //   CLR MEM
 0 0011 0000 //   ADM
-0 0000 0100 //   CLR ACC
+0 0000 0001 //   CLR ACC
 0 0000 0000 // MATCH_CPY_FIRST:
 0 0000 1101 //   STRR +64
 0 0100 0000 //   TARGET ACC+64
 0 0000 0000 //   IMM 1
 0 0000 0000 //   STR [0] // Use [0] to track what message we scan next
 0 0000 0000 // COPY_MSG:
-0 0000 0100 //   CLR ACC
+0 0000 0001 //   CLR ACC
 0 0001 0100 //   ADD [0]
 1 0000 0000 //   TARGET 0
 0 0001 0100 //   ADD *ACC // Read in next message
@@ -98,8 +98,8 @@
 0 1000 0000 //   XORA          // Get parity of ACC
 0 0101 0000 //   AND MEM       // AND parity and MSB of stored message
 0 0000 1000 //   CMP
-0 0000 0100 //   CLR ACC
-0 0000 0101 //   CLR MEM
+0 0000 0001 //   CLR ACC
+0 0000 0010 //   CLR MEM
 0 0001 0100 //   ADD [0]
 1 0000 0000 //   TARGET 0
 0 0001 0100 //   ADD *ACC // Read in last message
@@ -110,15 +110,15 @@
 0 0000 0101 // OFFSET +5
 0 0001 1000 //   ADD IMM 0x80 
 1 1000 0000 //   IMM 0x80             // Else, copy 0x80 to output
-0 0000 0101 //   CLR MEM
+0 0000 0010 //   CLR MEM
 0 0011 0000 //   ADM
-0 0000 0100 //   CLR ACC
+0 0000 0001 //   CLR ACC
 0 0000 0000 // MATCH_CPY:
 0 0000 1101 //   STRR +64
 0 0100 0000 //   TARGET ACC+64
 0 0001 1000 //   ADD IMM 1
 1 0000 0001 //   IMM 1
-0 0000 0101 //   CLR MEM
+0 0000 0010 //   CLR MEM
 0 0011 0000 //   ADM
 0 0001 1000 //   ADD IMM 64
 1 0100 0000 //   IMM 64
